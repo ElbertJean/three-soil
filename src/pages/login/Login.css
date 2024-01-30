@@ -77,7 +77,7 @@
     text-align: center;
 }
 
-.form button {
+.buttonActive {
     background-color: #003374;
     height: 45px;
     width: 180px;
@@ -90,11 +90,22 @@
     transition: 0.2s;
 }
 
-.form button:hover {
+.buttonActive:hover {
     transition: 0.2s;
     background-color: rgba(var(--base-primary-strong));
     color: rgba(var(--base-light));
     width: 200px;
+}
+
+.buttonDesactive {
+    background-color: #d9d9d9;
+    height: 45px;
+    width: 180px;
+    border-radius: 5px;
+    border: none;
+    color: #F4F5F6;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 @media only screen and (max-width: 1300px) {

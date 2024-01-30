@@ -1,24 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './Login.css';
 
-import tree from '../assets/tree.jpg';
-import logo from '../assets/logo.svg';
+import { useNavigate } from "react-router-dom";
+
+import tree from '../../assets/tree.jpg';
+import logo from '../../assets/logo.svg';
+
 
 function Login():JSX.Element {
+
+    const navigate = useNavigate()
 
     const [ emailValue, setEmailValue ] = React.useState<string>('');
     const [ passwordValue, setPasswordValue ] = React.useState<string>('');
     const [ error, setError ] = React.useState<boolean>(false);
+    const [buttonDisabled, setButtonDisabled] = React.useState<boolean>(false);
 
     function handlerSubmit(e: any){
         e.preventDefault();
-        if (emailValue.length === 0 || passwordValue.length === 0) return;
-        if (emailValue === 'admin@threesoil.com' && passwordValue === 'admin123') {
+        if (emailValue.length === 0 && passwordValue.length === 0) return
+        if (emailValue === 'admin@admin.com' && passwordValue === 'admin123') {
             setError(false);
+            navigate('/home');
         } else {
             setError(true);
         }
     }
+
+    useEffect(() => {   
+        if (emailValue.length === 0 || passwordValue.length === 0) {
+            setButtonDisabled(false)
+        } else {
+            setButtonDisabled(true)
+        }
+    }, [emailValue, passwordValue])
 
     return (
         <div className="container">
@@ -45,9 +60,15 @@ function Login():JSX.Element {
                             ): (
                                 <p className="error">Email e/ou senha inválidos</p>
                             )}
-                            <div className="divButton">
-                                <button type="submit" onClick={handlerSubmit}>Login</button>
-                            </div>
+                            {buttonDisabled ? (
+                                <div className="divButton">
+                                    <button className="buttonActive" type="submit" onClick={handlerSubmit}>Login</button>
+                                </div>
+                            ):(
+                                <div className="divButton">
+                                    <button className="buttonDesactive" disabled type="submit" onClick={handlerSubmit}>Login</button>
+                                </div>
+                            )}
                         </form>
                     </div>
                 </div>
