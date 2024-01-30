@@ -6,18 +6,19 @@ import logo from '../assets/logo.svg';
 
 function Login():JSX.Element {
 
-    const [ emailValue, setEmailValue ] = React.useState(String);
-    const [ passwordValue, setPasswordValue ] = React.useState(String);
-    // const [ error, setError ] = React.useState(Boolean);
+    const [ emailValue, setEmailValue ] = React.useState<string>('');
+    const [ passwordValue, setPasswordValue ] = React.useState<string>('');
+    const [ error, setError ] = React.useState<boolean>(false);
 
-    // const teste(e) {
-    //     e.preventDefault();
-    //     if (emailValue === 'elbertjean@gmail.com' && passwordValue === '123456') {
-    //         setError(false);
-    //     } else {
-    //         setError(true);
-    //     }
-    // }
+    function handlerSubmit(e: any){
+        e.preventDefault();
+        if (emailValue.length === 0 || passwordValue.length === 0) return;
+        if (emailValue === 'admin@threesoil.com' && passwordValue === 'admin123') {
+            setError(false);
+        } else {
+            setError(true);
+        }
+    }
 
     return (
         <div className="container">
@@ -36,15 +37,18 @@ function Login():JSX.Element {
                                 <input type="email" onChange={(e) => setEmailValue(e.target.value)}/>
                             </div>
                             <div className="divInput">
-                                <label htmlFor="email">Senha</label>
-                                <input type="email" onChange={(e) => setPasswordValue(e.target.value)}/>
+                                <label htmlFor="password">Senha</label>
+                                <input type="password" onChange={(e) => setPasswordValue(e.target.value)}/>
                             </div>
+                            {!error ? (
+                                <></>
+                            ): (
+                                <p className="error">Email e/ou senha inválidos</p>
+                            )}
                             <div className="divButton">
-                                <button type="submit">Entrar</button>
+                                <button type="submit" onClick={handlerSubmit}>Login</button>
                             </div>
                         </form>
-                        <p>{emailValue}</p>
-                        <p>{passwordValue}</p>
                     </div>
                 </div>
             </div>
