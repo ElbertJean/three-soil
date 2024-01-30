@@ -1,0 +1,55 @@
+:root {
+    /* 
+        Colors
+    */
+    --base-primary: 0, 51, 116;
+    --base-primary-strong: 0, 22, 51;
+    --base-primary-weak: 45, 103, 178;
+    --base-secondary: 72, 169, 166;
+    --base-secondary-strong: 19, 105, 102;
+    --base-secondary-weak: 158, 232, 230;
+    --base-light: 255, 255, 255;
+    --base-warning: 255, 107, 84;
+    --base-error: 191, 39, 15;
+    --base-success: 39, 174, 96
+
+    /* 
+        Fonts
+        Scale: 1.200 - Minor Third
+    */
+    --paragraph-small-fx: 14px;
+    --paragraph-regular-fx: 16px;
+    --paragraph-large-fx: 20px;
+    --font-paragraph:
+        normal normal
+        clamp(var(--paragraph-small-fx), var(--paragraph-regular-fx), var(--paragraph-large-fx)) / 150%
+        'Rubik', sans-serif;
+
+    --heading-small-fx: 1.44rem;
+    --heading-regular-fx: 2vw;
+    --heading-large-fx: 2.074rem;
+    --font-heading:
+        normal 700
+        clamp(var(--heading-small-fx), var(--heading-regular-fx), var(--heading-large-fx)) / 150%
+        'Rubik', sans-serif;
+
+    --display-small-fx: 2.448rem;
+    --display-regular-fx: 3vw;
+    --display-large-fx: 3.583rem;
+    --font-display:
+        normal 700
+        clamp(var(--display-small-fx), var(--display-regular-fx), var(--display-large-fx)) / 150%
+        'Rubik', sans-serif;
+
+    /* 
+        Paddings, margins, gaps and borders
+    */
+    --padding-spacing: 1rem 1rem;
+    --padding-items: 0.5rem 1rem;
+
+    --gap-default: 0.5rem;
+    --gap-large: 1rem;
+
+    --border-radius-default: 4px;
+    --border-radius-full: 100%;
+}

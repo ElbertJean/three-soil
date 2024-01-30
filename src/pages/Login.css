@@ -1,5 +1,5 @@
 .container {
-    background: linear-gradient( 0.25turn,#38485e, #293b53);
+    background: linear-gradient(108deg, rgba(0, 22, 51, 0.69) -18.98%, rgba(0, 22, 51, 0.97) 41.01%, rgba(0, 22, 51, 0.81) 107.81%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,31 +10,36 @@
     width: 1000px;
     height: 700px;
     border-radius: 10px;
-    background-color: white;
+    background-color: rgba(var(--base-light));
 }
 
-.div {
+.divItems {
     display: flex;
     height: 600px;
 }
 
-.divisao {
+.divImage {
     display: flex;
     width: 50%;
 }
 
-.divisao2 {
+.divLogin {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.arvore {
+.imageTree {
     width: 100%;
     border-top-left-radius: 10px;
     border-end-start-radius: 10px;
     height: 700px;
+}
+
+.divLogo {
+    text-align:center;
+    padding-top:100px
 }
 
 .logo {
@@ -50,17 +55,20 @@
     gap: 5px;
 }
 
+.divInput label {
+    font-size: var(--paragraph-large-fx);
+}
+
 .divInput input {
     height: 35px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid rgba(var(--base-secondary-strong));
     padding-left: 20px;
 }
 
 .divButton {
     margin: 30px 0px;
     text-align: center;
-
 }
 
 .form button {
@@ -73,13 +81,210 @@
     font-weight: bold;
     font-size: 18px;
     cursor: pointer;
-    transition: 0.5s;
-
+    transition: 0.2s;
 }
 
 .form button:hover {
-    transition: 0.5s;
-    background-color: #001633;
-    color: #F4F5F6;
+    transition: 0.2s;
+    background-color: rgba(var(--base-primary-strong));
+    color: rgba(var(--base-light));
     width: 200px;
+}
+
+@media only screen and (max-width: 1300px) {
+    .card {
+        width: 800px;
+        height: 600px;
+    }
+    
+    .imageTree {
+        height: 600px;
+    }
+
+    .divLogo {
+        padding-top:40px
+    }
+    
+    .logo {
+        width: 60%;
+    }
+    
+    .divInput {
+        width: 65%;
+        margin-top: 30px;
+        gap: 5px;
+    }
+    
+    .divInput label {
+        font-size: var(--paragraph-regular-fx);
+    }
+    
+    .divInput input {
+        height: 35px;
+        border-radius: 5px;
+    }
+    
+    .divButton {
+        margin: 30px 0px;
+        text-align: center;
+    }
+    
+    .form button {
+        height: 40px;
+        width: 150px;
+        border-radius: 5px;
+        font-size: var(--paragraph-regular-fx);
+    }
+    
+    .form button:hover {
+        width: 170px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .card {
+        width: 600px;
+        height: 400px;
+    }
+    
+    .divItems {
+        display: flex;
+        height: 400px;
+    }
+
+    .imageTree {
+        height: 400px;
+    }
+
+    .divLogo {
+        padding-top:80px
+    }
+    
+    .logo {
+        width: 60%;
+    }
+    
+    .divInput {
+        width: 65%;
+        margin-top: 30px;
+        gap: 5px;
+    }
+    
+    .divInput label {
+        font-size: var(--paragraph-regular-fx);
+    }
+    
+    .divInput input {
+        height: 35px;
+        border-radius: 5px;
+    }
+    
+    .divButton {
+        margin: 30px 0px;
+        text-align: center;
+    }
+    
+    .form button {
+        height: 40px;
+        width: 130px;
+        border-radius: 5px;
+        font-size: var(--paragraph-regular-fx);
+    }
+    
+    .form button:hover {
+        width: 140px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .card {
+        width: 400px;
+        height: 500px;
+    }
+    
+    .divItems {
+        height: 500px;
+    }
+
+    .divImage {
+        display: none;
+        width: 0px;
+    }
+
+    .divLogin {
+        width: 100%;
+    }
+
+    .divInput {
+        width: 65%;
+        margin-top: 30px;
+        gap: 5px;
+    }
+    
+    .divInput input {
+        height: 35px;
+        border-radius: 5px;
+    }
+    
+    .divButton {
+        margin: 30px 0px;
+    }
+    
+    .form button {
+        height: 40px;
+        width: 120px;
+        border-radius: 5px;
+        font-size: var(--paragraph-regular-fx);
+    }
+    
+    .form button:hover {
+        width: 130px;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .card {
+        width: 300px;
+        height: 400px;
+    }
+    
+    .divItems {
+        height: 400px;
+    }
+
+    .divImage {
+        display: none;
+        width: 0px;
+    }
+
+    .divLogin {
+        width: 100%;
+    }
+
+    .divInput {
+        width: 65%;
+        margin-top: 30px;
+        gap: 5px;
+    }
+    
+    .divInput input {
+        height: 35px;
+        border-radius: 5px;
+        padding-left: 10px;
+    }
+    
+    .divButton {
+        margin: 30px 0px;
+    }
+    
+    .form button {
+        height: 40px;
+        width: 120px;
+        border-radius: 5px;
+        font-size: var(--paragraph-regular-fx);
+    }
+    
+    .form button:hover {
+        width: 130px;
+    }
 }
