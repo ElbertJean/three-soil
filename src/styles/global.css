@@ -6,5 +6,5 @@ body {
     margin: 0;
     padding: 0;
     box-shadow: none;
-    color: rgba(var(--base-primary-strong))
+    color: rgba(var(--base-light));
 }

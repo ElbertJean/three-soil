@@ -57,6 +57,7 @@
 
 .divInput label {
     font-size: var(--paragraph-large-fx);
+    color: rgba(var(--base-primary-strong));
 }
 
 .divInput input {

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import './Login.css';
+import styles from './Login.module.css';
 
 import { useNavigate } from "react-router-dom";
 
@@ -36,22 +36,22 @@ function Login():JSX.Element {
     }, [emailValue, passwordValue])
 
     return (
-        <div className="container">
-            <div className="card">
-                <div className="divItems">
-                    <div className="divImage">
-                        <img src={tree} alt="árvore" className="imageTree" />
+        <div className={styles.container}>
+            <div className={styles.card}>
+                <div className={styles.divItems}>
+                    <div className={styles.divImage}>
+                        <img src={tree} alt="árvore" className={styles.imageTree} />
                     </div>
-                    <div className="divLogin">
-                        <div className="divLogo">
-                            <img src={logo} alt="logo" className="logo"/>
+                    <div className={styles.divLogin}>
+                        <div className={styles.divLogo}>
+                            <img src={logo} alt="logo" className={styles.logo}/>
                         </div>
-                        <form className="form">
-                            <div className="divInput">
+                        <form className={styles.form}>
+                            <div className={styles.divInput}>
                                 <label htmlFor="email">Email</label>
                                 <input type="email" onChange={(e) => setEmailValue(e.target.value)}/>
                             </div>
-                            <div className="divInput">
+                            <div className={styles.divInput}>
                                 <label htmlFor="password">Senha</label>
                                 <input type="password" onChange={(e) => setPasswordValue(e.target.value)}/>
                             </div>
@@ -61,12 +61,12 @@ function Login():JSX.Element {
                                 <p className="error">Email e/ou senha inválidos</p>
                             )}
                             {buttonDisabled ? (
-                                <div className="divButton">
-                                    <button className="buttonActive" type="submit" onClick={handlerSubmit}>Login</button>
+                                <div className={styles.divButton}>
+                                    <button className={styles.buttonActive} type="submit" onClick={handlerSubmit}>Login</button>
                                 </div>
                             ):(
-                                <div className="divButton">
-                                    <button className="buttonDesactive" disabled type="submit" onClick={handlerSubmit}>Login</button>
+                                <div className={styles.divButton}>
+                                    <button className={styles.buttonDesactive} disabled type="submit" onClick={handlerSubmit}>Login</button>
                                 </div>
                             )}
                         </form>
