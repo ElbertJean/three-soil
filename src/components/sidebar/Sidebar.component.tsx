@@ -52,7 +52,7 @@ function Sidebar(): JSX.Element {
                 <hr className={styles.line}/>
             </div>
             <div>
-                <a href="/home" className={`${state.isCollapsed ? styles.bodyCollapsed : styles.bodyExpanded}`} onClick={()=> alert('Esse alerta posso fazer')}>
+                <a href="/home" className={`${state.isCollapsed ? styles.bodyCollapsed : styles.bodyExpanded}`}>
                     <div>
                         <img src={iconMap} alt="icone do mapa" className={`${state.isCollapsed ? styles.iconMapCollapsed : styles.iconMapExpanded}`}/>
                     </div>

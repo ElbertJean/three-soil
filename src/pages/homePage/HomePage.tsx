@@ -1,9 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 import Layout from "../../components/layout/Layout";
 import styles from './HomePage.module.css';
 import area1 from '../../assets/area1.svg';
 import area2 from '../../assets/area2.svg';
 
 function HomePage(): JSX.Element {
+
+    const navigate = useNavigate()
 
     return(
         <>
@@ -20,7 +24,7 @@ function HomePage(): JSX.Element {
                                 </p>
                             </div>
                             <div className={styles.divButton}>
-                                <button className={styles.buttonActive} onClick={()=>alert('auu')}>Acessar</button>
+                                <button className={styles.buttonActive} onClick={()=>alert('/map')}>Acessar</button>
                             </div>
                         </div>
                         <div className={styles.card}>
@@ -33,7 +37,7 @@ function HomePage(): JSX.Element {
                                 </p>
                             </div>
                             <div className={styles.divButton}>
-                                <button className={styles.buttonActive} onClick={()=>alert('auu')}>Acessar</button>
+                                <button className={styles.buttonActive} onClick={()=>navigate('/map')}>Acessar</button>
                             </div>
                         </div>
                     </div>    

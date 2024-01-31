@@ -29,7 +29,7 @@
 }
 
 .titleCard {
-    font-size: var(--heading-small-fx) ;
+    font-size: var(--paragraph-large-fx) ;
     color: rgba(var(--base-primary-strong));
     text-align: center;
     margin-top: 10px;
