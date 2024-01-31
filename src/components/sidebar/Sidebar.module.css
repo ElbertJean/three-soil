@@ -1,0 +1,84 @@
+.container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 300px;
+    height: 100vh;
+    border-right: 1px solid black;
+    background-color: rgba(var(--base-primary-strong));
+}
+
+.divUser {
+    display: flex;
+    position: relative;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+}
+
+.divButtonClose {
+    position: absolute;
+    top: 10px;
+    right: -35px;
+}
+
+.buttonClose {
+    width: 60px;
+}
+
+.iconUser {
+    width: 80px;
+}
+
+.lineUser {
+    width: 80%;
+    border: 1px solid rgba(var(--base-light));
+    margin: -8px 0;
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 20px;
+    text-decoration: none;
+}
+
+.iconMap {
+    width: 30px;
+}
+
+.paragraphMap {
+    color: rgba(var(--base-light));
+    font-size: var(--paragraph-large-fx);
+}
+
+.divButtonLoggout {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+}
+
+.iconMapButton {
+    width: 30px;
+}
+
+.buttonLoggout {
+    background-color: rgba(var(--base-light));
+    height: 45px;
+    width: 260px;
+    border-radius: 5px;
+    border: none;
+    color: rgba(var(--base-primary-strong));
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    gap:85px;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.buttonLoggout:hover {
+    background: rgba(var(--base-secondary-weak), 0.9);
+}
