@@ -58,7 +58,7 @@ function Login():JSX.Element {
                             {!error ? (
                                 <></>
                             ): (
-                                <p className="error">Email e/ou senha inválidos</p>
+                                <p className={styles.error}>Email e/ou senha inválidos</p>
                             )}
                             {buttonDisabled ? (
                                 <div className={styles.divButton}>
