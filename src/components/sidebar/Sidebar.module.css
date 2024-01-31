@@ -1,4 +1,4 @@
-.container {
+.containerExpanded {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -6,13 +6,32 @@
     height: 100vh;
     border-right: 1px solid black;
     background-color: rgba(var(--base-primary-strong));
+    transition: 0.5s;
 }
 
-.divUser {
+.containerCollapsed {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 80px;
+    height: 100vh;
+    border-right: 1px solid black;
+    background-color: rgba(var(--base-primary-strong));
+    transition: 0.5s;
+}
+
+.divUserExpanded {
     display: flex;
     position: relative;
     gap: 20px;
     padding: 20px;
+    align-items: center;
+}
+
+.divUserCollapsed {
+    display: flex;
+    position: relative;
+    padding: 20px 10px 5px 10px;
     align-items: center;
 }
 
@@ -26,8 +45,18 @@
     width: 60px;
 }
 
-.iconUser {
+.iconUserExpanded {
     width: 80px;
+    transition: 0.5s;
+}
+
+.iconUserCollapsed {
+    width: 40px;
+    transition: 0.5s;
+}
+
+.divTextUserCollapsed {
+    display:none;
 }
 
 .lineUser {
@@ -36,7 +65,15 @@
     margin: -8px 0;
 }
 
-.body {
+.divLineExpanded {
+    padding: 0px 20px
+}
+
+.divLineCollapsed {
+    padding: 0px 10px
+}
+
+.bodyExpanded {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -44,8 +81,25 @@
     text-decoration: none;
 }
 
-.iconMap {
+.bodyCollapsed {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.paragraphCollapsed {
+    display: none;
+}
+
+.iconMapExpanded {
+    width: 40px;
+    transition: 0.5s;
+}
+
+.iconMapCollapsed {
     width: 30px;
+    transition: 0.5s;
 }
 
 .paragraphMap {
@@ -53,20 +107,22 @@
     font-size: var(--paragraph-large-fx);
 }
 
-.divButtonLoggout {
+.divButtonLoggoutExpanded {
     position: absolute;
     bottom: 0;
     padding: 20px;
 }
 
-.iconMapButton {
-    width: 30px;
+.divButtonLoggoutCollapsed {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
 }
 
-.buttonLoggout {
+.buttonLoggoutExpanded {
     background-color: rgba(var(--base-light));
     height: 45px;
-    width: 260px;
+    width: 240px;
     border-radius: 5px;
     border: none;
     color: rgba(var(--base-primary-strong));
@@ -79,6 +135,30 @@
     transition: 0.2s;
 }
 
-.buttonLoggout:hover {
+.buttonLoggoutCollapsed {
+    background-color: rgba(var(--base-light));
+    height: 40px;
+    width: 50px;
+    border-radius: 5px;
+    border: none;
+    color: rgba(var(--base-primary-strong));
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.buttonLoggoutExpanded:hover, .buttonLoggoutCollapsed:hover {
     background: rgba(var(--base-secondary-weak), 0.9);
+}
+
+.iconMapButtonExpanded {
+    width: 30px;
+}
+
+.iconMapButtonCollapsed {
+    width: 25px;
 }

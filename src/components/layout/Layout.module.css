@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+}
+
+.containerHeader {
+    width: 100%;
+    background-color: rgba(var(--base-light));
+    padding: 0px 40px 20px 40px;
+}
+
+.title {
+    font-size: var(--display-regular-fx);
+    color: rgba(var(--base-primary-strong));
+}
+
+.line {
+    margin-top: -10px;
+    border: 2px solid rgba(var(--base-primary-strong))
+}

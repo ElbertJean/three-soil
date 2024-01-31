@@ -1,30 +1,16 @@
-import Sidebar from "../../components/sidebar/Sidebar.component";
+import Layout from "../../components/layout/Layout";
 
 function HomePage(): JSX.Element {
 
     return(
         <>
-            <Sidebar />
+            <Layout>
+                <div style={{ display:' flex', justifyContent: 'center', alignItems: 'center', height: '80vh'}}>
+                    <p style={{color: '#001633', fontWeight:' bold', fontSize: '50px'}}>Em breve, React Leaflet</p>
+                </div>
+            </Layout>
         </>
     )
 }
 
 export default HomePage;
-
-// import { useNavigate } from 'react-router-dom';
-
-// function HomePage(): JSX.Element {
-
-//     const navigate = useNavigate();
-
-//     return(
-//         <>
-//             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column'}}>
-//                 <h1>Em breve, HomePage</h1>
-//                 <button onClick={() => navigate('/')}>Voltar para login</button>
-//             </div>
-//         </>
-//     )
-// }
-
-// export default HomePage;
