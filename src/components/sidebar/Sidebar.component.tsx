@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
 
 import styles from './Sidebar.module.css';
 import iconeUsuario from '../../assets/iconeUsuario.svg';
@@ -8,13 +7,15 @@ import logout from '../../assets/logout.svg';
 import buttonCollapsed from '../../assets/buttonCollapsed.svg';
 import buttonExpanded from '../../assets/buttonExpanded.svg';
 
+import { SessionContext } from "../../routes/router.routes";
+
 interface IState {
     isCollapsed: boolean;
 }
 
 function Sidebar(): JSX.Element {
 
-    const navigate = useNavigate();
+    const { logout: handleLogout } = useContext(SessionContext);
 
     const [ state, setState ] = useState<IState>({isCollapsed: false});
 
@@ -52,7 +53,7 @@ function Sidebar(): JSX.Element {
                 <hr className={styles.line}/>
             </div>
             <div>
-                <a href="/home" className={`${state.isCollapsed ? styles.bodyCollapsed : styles.bodyExpanded}`} onClick={()=> alert('Esse alerta posso fazer')}>
+                <a href="/home" className={`${state.isCollapsed ? styles.bodyCollapsed : styles.bodyExpanded}`}>
                     <div>
                         <img src={iconMap} alt="icone do mapa" className={`${state.isCollapsed ? styles.iconMapCollapsed : styles.iconMapExpanded}`}/>
                     </div>
@@ -62,7 +63,7 @@ function Sidebar(): JSX.Element {
                 </a>
             </div>
             <div className={`${state.isCollapsed ? styles.divButtonLoggoutCollapsed : styles.divButtonLoggoutExpanded}`}>
-                <button className={`${state.isCollapsed ? styles.buttonLoggoutCollapsed : styles.buttonLoggoutExpanded}`} onClick={() => navigate('/')}>
+                <button className={`${state.isCollapsed ? styles.buttonLoggoutCollapsed : styles.buttonLoggoutExpanded}`} onClick={() => handleLogout()}>
                     <img src={logout} alt="botao" className={`${state.isCollapsed ? styles.iconMapButtonCollapsed : styles.iconMapButtonExpanded}`}/>
                     {state.isCollapsed ? "" : "Sair"}
                 </button>

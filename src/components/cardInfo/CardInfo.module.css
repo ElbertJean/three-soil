@@ -1,0 +1,33 @@
+.cardMap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 600px;
+    border-width: 1px solid black;
+    background-color: rgba(var(--base-primary-strong));
+    border-radius: 10px;
+}
+
+.cardInfo {
+    padding: 0 40px;
+    text-align: center;
+}
+
+.info {
+    font-size: var(--paragraph-large-fx);
+}
+
+.loader {
+    font-size: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

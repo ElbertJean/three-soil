@@ -21,6 +21,7 @@
 }
 
 .divUserExpanded {
+    z-index: 9999;
     display: flex;
     position: relative;
     gap: 20px;
@@ -29,6 +30,7 @@
 }
 
 .divUserCollapsed {
+    z-index: 9999;
     display: flex;
     position: relative;
     padding: 20px 10px 5px 10px;

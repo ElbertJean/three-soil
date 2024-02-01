@@ -1,27 +1,35 @@
-import React, { useEffect } from "react";
-import styles from './Login.module.css';
-
+import React, { useContext, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+
+import styles from './Login.module.css';
 
 import tree from '../../assets/tree.jpg';
 import logo from '../../assets/logo.svg';
+
+import { SessionContext } from "../../routes/router.routes";
 
 
 function Login():JSX.Element {
 
     const navigate = useNavigate()
+    let { login } = useContext(SessionContext);
 
     const [ emailValue, setEmailValue ] = React.useState<string>('');
     const [ passwordValue, setPasswordValue ] = React.useState<string>('');
     const [ error, setError ] = React.useState<boolean>(false);
     const [buttonDisabled, setButtonDisabled] = React.useState<boolean>(false);
 
+    const handleLogin = useCallback(() => {
+        login();
+        navigate('/home');
+    }, [login, navigate]);
+
     function handlerSubmit(e: any){
         e.preventDefault();
         if (emailValue.length === 0 && passwordValue.length === 0) return
         if (emailValue === 'admin@admin.com' && passwordValue === 'admin123') {
             setError(false);
-            navigate('/home');
+            handleLogin();
         } else {
             setError(true);
         }
@@ -34,6 +42,13 @@ function Login():JSX.Element {
             setButtonDisabled(true)
         }
     }, [emailValue, passwordValue])
+
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem('isAuthenticated');
+        if (isAuthenticated) {
+            handleLogin();
+        }
+    }, [handleLogin]);
 
     return (
         <div className={styles.container}>
