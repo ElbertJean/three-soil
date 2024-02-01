@@ -8,14 +8,18 @@ import Error404 from '../pages/error404/Error404';
 
 interface SessionContextType {
   isAuthenticated: boolean;
+  cardCollapsed?: boolean;
   login: () => void;
   logout: () => void;
+  handleCardCollapsed: (e: any) => void
 }
 
 export const SessionContext = React.createContext<SessionContextType>({
   isAuthenticated: false,
+  cardCollapsed: false,
   login: () => {},
   logout: () => {},
+  handleCardCollapsed: () => {}
 });
 
 const RouterRoutes: React.FC = () => {
@@ -24,6 +28,16 @@ const RouterRoutes: React.FC = () => {
     const storedAuth = localStorage.getItem('isAuthenticated');
     return storedAuth ? JSON.parse(storedAuth) : false;
   });
+
+  const [ cardCollapsed, setCardCollapsed ] = useState<boolean>(false)
+
+  const handleCardCollapsed = (event: any) => {
+    if (event !== null) {
+        setCardCollapsed(false);
+    } else {
+        setCardCollapsed(true);
+    }
+};
 
   const login = () => {
     setIsAuthenticated(true);
@@ -36,7 +50,7 @@ const RouterRoutes: React.FC = () => {
   };
 
   return (
-    <SessionContext.Provider value={{ isAuthenticated, login, logout }}>
+    <SessionContext.Provider value={{ isAuthenticated, cardCollapsed ,login, logout, handleCardCollapsed }}>
       <BrowserRouter>
         <Routes>
           <Route index path="/" element={<App />} />

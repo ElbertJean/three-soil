@@ -3,6 +3,7 @@
 }
 
 .containerHeader {
+    position: relative;
     width: 100%;
     background-color: rgba(var(--base-light));
     padding: 0px 40px 20px 40px;

@@ -12,7 +12,7 @@ import { SessionContext } from "../../routes/router.routes";
 function Login():JSX.Element {
 
     const navigate = useNavigate()
-    const { login } = useContext(SessionContext);
+    let { login } = useContext(SessionContext);
 
     const [ emailValue, setEmailValue ] = React.useState<string>('');
     const [ passwordValue, setPasswordValue ] = React.useState<string>('');
