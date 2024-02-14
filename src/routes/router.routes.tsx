@@ -55,7 +55,7 @@ const RouterRoutes: React.FC = () => {
         <Routes>
           <Route index path="/" element={<App />} />
           <Route path="/home" element={<PrivateRoute component={HomePage} />} />
-          <Route path="/map" element={<PrivateRoute component={Map} />} />
+          <Route path="/map/:id" element={<PrivateRoute component={Map} />} />
           <Route path="*" element={<PrivateRoute component={Error404} />} />
         </Routes>
       </BrowserRouter>

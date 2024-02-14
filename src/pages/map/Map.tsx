@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
 import { MapContainer, TileLayer } from 'react-leaflet';
 
 import Layout from "../../components/layout/Layout";
@@ -12,11 +13,15 @@ import './Map.css';
 
 function Map():JSX.Element {
 
+    const { id } = useParams<{ id: string }>();
+    const idAsNumber = id ? parseInt(id) : null;
+
     const center:[number, number] = [-23.148018027367087, -45.829357780257624]
     const { cardCollapsed } = useContext(SessionContext)
 
     const [geoFilter, setGeoFilter] = useState(null);
     const getGeoFilter = () => geoFilter   
+
 
     return (
         <>
@@ -25,15 +30,29 @@ function Map():JSX.Element {
                     <TileLayer
                         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
                     />
-                    <AreasSJCLayer data={areasSJC.features[1]} setGeoFilter={setGeoFilter} getGeoFilter={getGeoFilter}/>
+                    {idAsNumber !== null && !isNaN(idAsNumber) && areasSJC.features[idAsNumber] && (
+                        <AreasSJCLayer data={areasSJC.features[idAsNumber-1]} setGeoFilter={setGeoFilter} getGeoFilter={getGeoFilter}/>
+                    )}
                 </MapContainer>
                 { cardCollapsed ? (
-                   <div className="cardMapExpanded">
-                       <CardInfo />
-                   </div>
+                    <div className="cardMapExpanded">
+                        {idAsNumber !== null && !isNaN(idAsNumber) && areasSJC.features[idAsNumber] && (
+                        <CardInfo 
+                            title={areasSJC.features[idAsNumber-1].properties.name}
+                            description={areasSJC.features[idAsNumber-1].properties.description}
+                            centroId={areasSJC.features[idAsNumber-1].geometry}
+                        />
+                        )}
+                    </div>
                 ) : (
                     <div className="cardMapCollapsed">
-                        <CardInfo />
+                        {idAsNumber !== null && !isNaN(idAsNumber) && areasSJC.features[idAsNumber] && (
+                            <CardInfo
+                                title={areasSJC.features[idAsNumber-1].properties.name}
+                                description={areasSJC.features[idAsNumber-1].properties.description}
+                                centroId={areasSJC.features[idAsNumber-1].geometry}
+                            />
+                        )}
                     </div>
                 )
                 }

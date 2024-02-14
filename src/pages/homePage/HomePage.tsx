@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom";
 
 import Layout from "../../components/layout/Layout";
 import styles from './HomePage.module.css';
-import area1 from '../../assets/area1.svg';
-import area2 from '../../assets/area2.svg';
+import CardMap from "../../components/cardMap/CardMap.component";
+
+import { areasSJC as data } from "../map/data/data";
 
 function HomePage(): JSX.Element {
 
@@ -14,32 +15,16 @@ function HomePage(): JSX.Element {
             <Layout>
                 <div className={styles.container}>
                     <div className={styles.containerCards}>
-                        <div className={styles.card}>
-                            <img src={area1} alt='área 1' className={styles.imageMap}/>
-                            <div className={styles.descriptionCard}>
-                                <h3 className={styles.titleCard}>Fazenda Recanto dos Pássaros</h3>
-                                <p className={styles.paragraphCard}>
-                                    Fazenda localizada na região oeste de São José dos Campos, sendo umas das 
-                                    principais áreas de plantio de milho da região.
-                                </p>
-                            </div>
-                            <div className={styles.divButton}>
-                                <button className={styles.buttonActive} onClick={()=>alert('/map')}>Acessar</button>
-                            </div>
-                        </div>
-                        <div className={styles.card}>
-                            <img src={area2} alt='área 2' className={styles.imageMap}/>
-                            <div className={styles.descriptionCard}>
-                                <h3 className={styles.titleCard}>Floresta preservada Campo da Mantiqueira</h3>
-                                <p className={styles.paragraphCard}>
-                                Reserva localizada na região oeste de São José dos Campos, onde possui diversos 
-                                tipos de árvores preservadas.
-                                </p>
-                            </div>
-                            <div className={styles.divButton}>
-                                <button className={styles.buttonActive} onClick={()=>navigate('/map')}>Acessar</button>
-                            </div>
-                        </div>
+                    {data.features.map(feature => (
+                        <CardMap 
+                            key={feature.properties.id} 
+                            title={feature.properties.name} 
+                            paragraph={feature.properties.description}
+                            dataMap={feature}
+                            centroId={feature.geometry}
+                            button={()=> navigate('/map/' + feature.properties.id)}
+                        />
+                    ))}
                     </div>    
                 </div>
             </Layout>
