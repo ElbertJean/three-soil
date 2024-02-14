@@ -31,7 +31,7 @@ function CardInfo(props: CardInfoProps):JSX.Element {
                           centroid(centroId)[1],
                           centroid(centroId)[0],
                         ] as LatLngExpression
-                      }
+                    }
                     zoom={12} 
                     scrollWheelZoom={false} 
                     zoomControl={false} 
@@ -42,7 +42,7 @@ function CardInfo(props: CardInfoProps):JSX.Element {
                     <TileLayer
                         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
                     />
-                    {idAsNumber !== null && !isNaN(idAsNumber) && areasSJC.features[idAsNumber] && (
+                    {idAsNumber !== null && !isNaN(idAsNumber) && areasSJC.features[idAsNumber-1] && (
                         <GeoJSON 
                             key='geo-json-areas-SJC'
                             data={areasSJC.features[idAsNumber-1] as unknown as FeatureCollection <Polygon>}
