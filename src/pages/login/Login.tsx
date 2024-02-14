@@ -8,6 +8,8 @@ import logo from '../../assets/logo.svg';
 
 import { SessionContext } from "../../routes/router.routes";
 
+import isEmailValid from "../../@utils/validation/isEmailValid";
+import isPasswordValid from "../../@utils/validation/isPasswordValid";
 
 function Login():JSX.Element {
 
@@ -16,7 +18,9 @@ function Login():JSX.Element {
 
     const [ emailValue, setEmailValue ] = React.useState<string>('');
     const [ passwordValue, setPasswordValue ] = React.useState<string>('');
-    const [ error, setError ] = React.useState<boolean>(false);
+    const [ errorEmail, setErrorEmail ] = React.useState<boolean>(false);
+    const [ errorPassword, setErrorPassword ] = React.useState<boolean>(false);
+    const [ errorLogin, setErrorLogin ] = React.useState<boolean>(false);
     const [buttonDisabled, setButtonDisabled] = React.useState<boolean>(false);
 
     const handleLogin = useCallback(() => {
@@ -26,22 +30,37 @@ function Login():JSX.Element {
 
     function handlerSubmit(e: any){
         e.preventDefault();
-        if (emailValue.length === 0 && passwordValue.length === 0) return
-        if (emailValue === 'admin@admin.com' && passwordValue === 'admin123') {
-            setError(false);
+        if (emailValue === 'admin@admin.com' && passwordValue === 'Admin123*') {
+            setErrorLogin(false);
             handleLogin();
         } else {
-            setError(true);
+            setErrorLogin(true);
+        }
+    }
+
+    function validateEmail() {
+        if (isEmailValid(emailValue)) {
+            setErrorEmail(false);
+        } else {
+            setErrorEmail(true);
+        }
+    }
+
+    function validatePassword() {
+        if (isPasswordValid(passwordValue)) {
+            setErrorPassword(false);
+        } else {
+            setErrorPassword(true);
         }
     }
 
     useEffect(() => {   
-        if (emailValue.length === 0 || passwordValue.length === 0) {
+        if (!isEmailValid(emailValue) || !isPasswordValid(passwordValue)) {
             setButtonDisabled(false)
         } else {
             setButtonDisabled(true)
         }
-    }, [emailValue, passwordValue])
+    }, [emailValue, passwordValue]);
 
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -63,14 +82,26 @@ function Login():JSX.Element {
                         </div>
                         <form className={styles.form}>
                             <div className={styles.divInput}>
-                                <label htmlFor="email">Email</label>
-                                <input type="email" onChange={(e) => setEmailValue(e.target.value)}/>
+                                <label className={styles.label} htmlFor="email">Email</label>
+                                <input 
+                                    className={`${styles.input} ${!errorEmail ? styles.input : styles.inputError}`} 
+                                    type="email"
+                                    onChange={(e) => setEmailValue(e.target.value)}
+                                    onBlur={validateEmail}
+                                    placeholder={errorEmail ? 'Por favor, insira um e-mail válido!' : ''}
+                                />
                             </div>
                             <div className={styles.divInput}>
-                                <label htmlFor="password">Senha</label>
-                                <input type="password" onChange={(e) => setPasswordValue(e.target.value)}/>
+                                <label className={styles.label} htmlFor="password">Senha</label>
+                                <input 
+                                    className={`${styles.input} ${!errorPassword ? styles.input : styles.inputError}`} 
+                                    type="password" 
+                                    onChange={(e) => setPasswordValue(e.target.value)}
+                                    onBlur={validatePassword}
+                                    placeholder={errorPassword ? 'Por favor, insira uma senha válida!' : ''}
+                                />
                             </div>
-                            {!error ? (
+                            {!errorLogin ? (
                                 <></>
                             ): (
                                 <p className={styles.error}>Email e/ou senha inválidos</p>

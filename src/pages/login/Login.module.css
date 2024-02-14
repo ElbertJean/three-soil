@@ -55,16 +55,28 @@
     gap: 5px;
 }
 
-.divInput label {
+.label {
     font-size: var(--paragraph-large-fx);
     color: rgba(var(--base-primary-strong));
 }
 
-.divInput input {
+.labelError {
+    color: rgba(var(--base-error));
+}
+
+.input {
     height: 35px;
     border-radius: 5px;
     border: 1px solid rgba(var(--base-secondary-strong));
     padding-left: 20px;
+}
+
+.inputError {
+    border-color: rgba(var(--base-error));
+}
+
+.inputError::placeholder{
+    color: rgba(var(--base-error));
 }
 
 .error {
