@@ -12,7 +12,7 @@ function HomePage(): JSX.Element {
 
     return(
         <>
-            <Layout>
+            <Layout title="Localização dos poligonos">
                 <div className={styles.container}>
                     <div className={styles.containerCards}>
                     {data.features.map(feature => (

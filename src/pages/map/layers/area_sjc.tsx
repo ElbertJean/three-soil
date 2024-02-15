@@ -25,9 +25,9 @@ function AreasSJCLayer({ data, setGeoFilter, getGeoFilter }: any):JSX.Element {
                 }}
                 style={(feature) => {
                     return {
-                        color: geoFilter === feature ? 'red' : 'blue',
-                        weight: 0.5,
-                        fillOpacity: geoFilter === feature? 0.4 : 0.25
+                        color: geoFilter === feature ? 'red' : '#3388FF',
+                        weight: 3,
+                        // fillOpacity: geoFilter === feature? 1 : 0.25
                     }
                 }}
             ></GeoJSON>
