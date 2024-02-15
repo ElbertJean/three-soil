@@ -29,10 +29,6 @@ function Sidebar(): JSX.Element {
     }
 
     return(
-        <>
-        <div>
-
-        </div>
         <div className={`${state.isCollapsed ? styles.containerCollapsed : styles.containerExpanded}`} >
             <div className={`${state.isCollapsed ? styles.divUserCollapsed : styles.divUserExpanded}`}>
                 <div className={styles.divButtonClose}>
@@ -69,7 +65,6 @@ function Sidebar(): JSX.Element {
                 </button>
             </div>
         </div>
-        </>
     )
 }
 
