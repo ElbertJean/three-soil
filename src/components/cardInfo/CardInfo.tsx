@@ -32,7 +32,7 @@ function CardInfo(props: CardInfoProps):JSX.Element {
                           centroid(centroId)[0],
                         ] as LatLngExpression
                     }
-                    zoom={12} 
+                    zoom={13} 
                     scrollWheelZoom={false} 
                     zoomControl={false} 
                     dragging={false} 
