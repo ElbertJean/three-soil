@@ -33,7 +33,7 @@ function CardMap(props: CardMapProps): JSX.Element {
           zoomControl={false} 
           dragging={false}
           doubleClickZoom={false}
-          style={{width: '300px', height: '250px', borderTopLeftRadius:'10px', borderTopRightRadius:'10px', marginTop: 0}} // Não estava funcionando style com className
+          style={{width: '300px', height: '250px', borderRadius: 0, borderTopLeftRadius:'10px', borderTopRightRadius:'10px', marginTop: 0}} // Não estava funcionando style com className
       >
           <TileLayer
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
