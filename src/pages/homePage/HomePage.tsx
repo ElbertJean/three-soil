@@ -17,7 +17,7 @@ function HomePage(): JSX.Element {
 
     return(
         <>
-            <Layout title="Localização dos poligonos &#127757;">
+            <Layout title="Áreas monitoradas &#127757;">
                 <div className={styles.container}>
                     <div className={`${styles.containerCards} ${ isCollapsed ? styles.containerCardsExpanded : styles.containerCards}`}>
                     {data.features.map(feature => (
