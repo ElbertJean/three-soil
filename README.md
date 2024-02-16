@@ -1,4 +1,4 @@
-<h1 align="center">  Desafio Técnico Front-end | SpotSat</h1>
+<h1 align="center"> Desafio Técnico Front-end </h1>
 
 <p align="center">
   <samp>
