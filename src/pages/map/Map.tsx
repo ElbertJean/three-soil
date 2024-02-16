@@ -39,7 +39,7 @@ function Map():JSX.Element {
 
     return (
         <>
-            <Layout title={`${idAsNumber && isValidArea() && areasSJC.features[idAsNumber-1].properties.name}`}>
+            <Layout title={`${idAsNumber && isValidArea() && areasSJC.features[idAsNumber-1].properties.name} \u{1F331}`}>
                 <MapContainer 
                     center={getCenterCoordinates()}
                     zoom={13}

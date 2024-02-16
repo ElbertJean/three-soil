@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.paragraph {
+  color: rgba(var(--base-primary-strong));
+  font-size: var(--display-large-fx);
+}

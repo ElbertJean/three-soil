@@ -9,7 +9,17 @@
     gap: 40px;
     padding-top: 20px;
     flex-wrap: wrap;
+    transition: 0.5s;
 }
+
+.containerCardsExpanded {
+    display: flex;
+    gap: 60px;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    transition: 0.5s;
+}
+
 
 .card {
     width: 300px;

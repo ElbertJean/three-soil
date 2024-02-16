@@ -1,12 +1,13 @@
 import Layout from "../../components/layout/Layout";
+import styles from "./Error404.module.css";
 
 function Error404():JSX.Element {
 
     return (
         <>
-            <Layout>
-                <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh'}}>
-                    <p style={{ color:'black', fontSize: '50px' }}>Erro, página não encontrada!</p>
+            <Layout title="Ocorreu um erro &#128534;">
+                <div className={styles.container}>
+                    <p className={styles.paragraph}>Página não encontrada.</p>
                 </div>
             </Layout>
         </>
