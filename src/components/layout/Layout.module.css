@@ -11,7 +11,7 @@
 }
 
 .title {
-    font-size: var(--display-regular-fx);
+    font-size: var(--display-small-fx);
     color: rgba(var(--base-primary-strong));
 }
 

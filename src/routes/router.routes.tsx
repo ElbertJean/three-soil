@@ -9,17 +9,21 @@ import Error404 from '../pages/error404/Error404';
 interface SessionContextType {
   isAuthenticated: boolean;
   cardCollapsed?: boolean;
+  isCollapsed: boolean;
   login: () => void;
   logout: () => void;
   handleCardCollapsed: (e: any) => void
+  collapsedSideBar: (e: any) => void;
 }
 
 export const SessionContext = React.createContext<SessionContextType>({
   isAuthenticated: false,
   cardCollapsed: false,
+  isCollapsed: false,
   login: () => {},
   logout: () => {},
-  handleCardCollapsed: () => {}
+  handleCardCollapsed: () => {},
+  collapsedSideBar: () => {}
 });
 
 const RouterRoutes: React.FC = () => {
@@ -37,6 +41,19 @@ const RouterRoutes: React.FC = () => {
     } else {
         setCardCollapsed(true);
     }
+
+  }
+
+  const [ isCollapsed, setIsCollapsed ] = useState(false);
+
+  function collapsedSideBar (e: any) {
+    e.preventDefault();
+    if (isCollapsed === true) {
+      setIsCollapsed(false);
+    } else {
+      setIsCollapsed(true);
+    }
+
 };
 
   const login = () => {
@@ -50,7 +67,7 @@ const RouterRoutes: React.FC = () => {
   };
 
   return (
-    <SessionContext.Provider value={{ isAuthenticated, cardCollapsed ,login, logout, handleCardCollapsed }}>
+    <SessionContext.Provider value={{ isAuthenticated, cardCollapsed, isCollapsed ,login, logout, handleCardCollapsed, collapsedSideBar }}>
       <BrowserRouter>
         <Routes>
           <Route index path="/" element={<App />} />
