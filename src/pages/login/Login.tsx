@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useCallback } from "react";
+import React, { useContext, useEffect, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from './Login.module.css';
@@ -10,6 +10,8 @@ import { SessionContext } from "../../routes/router.routes";
 
 import isEmailValid from "../../@utils/validation/isEmailValid";
 import isPasswordValid from "../../@utils/validation/isPasswordValid";
+
+import quest from '../../assets/quest.svg'
 
 function Login():JSX.Element {
 
@@ -54,6 +56,17 @@ function Login():JSX.Element {
         }
     }
 
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseEnterHelp = () => {
+        setIsHovering(true);
+    };
+  
+    const handleMouseLeaveHelp = () => {
+        setIsHovering(false);
+    };
+  
+
     useEffect(() => {   
         if (!isEmailValid(emailValue) || !isPasswordValid(passwordValue)) {
             setButtonDisabled(false)
@@ -92,7 +105,21 @@ function Login():JSX.Element {
                                 />
                             </div>
                             <div className={styles.divInput}>
-                                <label className={styles.label} htmlFor="password">Senha</label>
+                                <div className={styles.containerPassword}>
+                                    <label className={styles.label} htmlFor="password">Senha</label>
+                                    <img src={quest} alt="lup" className={styles.iconQuest} onMouseEnter={handleMouseEnterHelp} onMouseLeave={handleMouseLeaveHelp}/>
+                                    {isHovering && (
+                                        <div className={styles.divPopupHover}>
+                                            <div className={styles.popupHover}>
+                                                <p className={styles.modalParagraph}>8 caracteres no mínimo</p>
+                                                <p className={styles.modalParagraph}>1 letra maiúscula</p>
+                                                <p className={styles.modalParagraph}>1 letra minúscula</p>
+                                                <p className={styles.modalParagraph}>1 número</p>
+                                                <p className={styles.modalParagraph}>1 caractere especial</p>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
                                 <input 
                                     className={`${styles.input} ${!errorPassword ? styles.input : styles.inputError}`} 
                                     type="password" 
