@@ -1,21 +1,8 @@
 .container {
-    background: linear-gradient(108deg, rgba(0, 22, 51, 0.69) -18.98%, rgba(0, 22, 51, 0.97) 41.01%, rgba(0, 22, 51, 0.81) 107.81%);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    width: 100%;
     height: 100vh;
-}
-
-.card {
-    width: 1000px;
-    height: 700px;
-    border-radius: 10px;
-    background-color: rgba(var(--base-light));
-}
-
-.divItems {
-    display: flex;
-    height: 600px;
 }
 
 .divImage {
@@ -23,41 +10,28 @@
     width: 50%;
 }
 
+.imageTree {
+    width: 100%;
+    
+}
+
 .divLogin {
     width: 50%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-}
-
-.imageTree {
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-end-start-radius: 10px;
-    height: 700px;
-}
-
-.divLogo {
-    text-align:center;
-    padding-top:100px
+    gap: 20px;
 }
 
 .logo {
-    width: 70%;
+    width: 300px;
 }
 
-.divInput {
+.form {
     display: flex;
     flex-direction: column;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 30px;
-    gap: 5px;
-}
-
-.label {
-    font-size: var(--paragraph-large-fx);
-    color: rgba(var(--base-primary-strong));
+    gap: 16px;
 }
 
 .labelError {
@@ -76,47 +50,14 @@
     cursor: pointer;
 }
 
-.divPopupHover {
-    position: relative;
-    top: -45px;
-    left: 10px;
-}
-
-.popupHover {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    flex-direction: column;
-    width: 160px;
-    height: 80px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
-    padding: 0.5rem;
-    border: 1px solid rgba(var(--base-primary-strong));
-    padding: 20px;
-}
-
-.modalParagraph {
-    font-size: 14px;
-    margin: 0px;
-    color: rgba(var(--base-primary-strong));
-}
-
-.input {
-    height: 35px;
-    border-radius: 5px;
-    border: 1px solid rgba(var(--base-secondary-strong));
-    padding-left: 20px;
-}
-
 .inputError {
     border-color: rgba(var(--base-error));
 }
 
-.inputError::placeholder{
-    color: rgba(var(--base-error));
+.divError {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .error {
@@ -126,242 +67,34 @@
 }
 
 .divButton {
-    margin: 30px 0px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 16px;
 }
 
-.buttonActive {
+.button {
     background-color: #003374;
-    height: 45px;
-    width: 180px;
-    border-radius: 5px;
+    padding: 8px;
+    width: 300px;
+    border-radius: 4px;
     border: none;
     color: #F4F5F6;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .buttonActive:hover {
-    transition: 0.2s;
-    background-color: rgba(var(--base-primary-strong));
+    transition: 0.5s;
     color: rgba(var(--base-light));
-    width: 200px;
+}
+
+.buttonActive {
+    background-color: #003374;
 }
 
 .buttonDesactive {
     background-color: #d9d9d9;
-    height: 45px;
-    width: 180px;
-    border-radius: 5px;
-    border: none;
-    color: #F4F5F6;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-
-@media only screen and (max-width: 1300px) {
-    .card {
-        width: 800px;
-        height: 600px;
-    }
-    
-    .imageTree {
-        height: 600px;
-    }
-
-    .divLogo {
-        padding-top:40px
-    }
-    
-    .logo {
-        width: 60%;
-    }
-    
-    .divInput {
-        width: 65%;
-        margin-top: 30px;
-        gap: 5px;
-    }
-    
-    .divInput label {
-        font-size: var(--paragraph-regular-fx);
-    }
-    
-    .divInput input {
-        height: 35px;
-        border-radius: 5px;
-    }
-    
-    .divButton {
-        margin: 30px 0px;
-        text-align: center;
-    }
-    
-    .form button {
-        height: 40px;
-        width: 150px;
-        border-radius: 5px;
-        font-size: var(--paragraph-regular-fx);
-    }
-    
-    .form button:hover {
-        width: 170px;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .card {
-        width: 600px;
-        height: 400px;
-    }
-    
-    .divItems {
-        display: flex;
-        height: 400px;
-    }
-
-    .imageTree {
-        height: 400px;
-    }
-
-    .divLogo {
-        padding-top:0px
-    }
-    
-    .logo {
-        width: 60%;
-    }
-    
-    .divInput {
-        width: 65%;
-        margin-top: 20px;
-        gap: 5px;
-    }
-    
-    .divInput label {
-        font-size: var(--paragraph-regular-fx);
-    }
-    
-    .divInput input {
-        height: 35px;
-        border-radius: 5px;
-    }
-
-    .error {
-        font-size: 13px;
-        text-align: center;
-        color: rgba(var(--base-error));
-    }
-    
-    .divButton {
-        margin: 30px 0px;
-        text-align: center;
-    }
-    
-    .form button {
-        height: 40px;
-        width: 130px;
-        border-radius: 5px;
-        font-size: var(--paragraph-regular-fx);
-    }
-    
-    .form button:hover {
-        width: 140px;
-    }
-}
-
-@media only screen and (max-width: 620px) {
-    .card {
-        width: 400px;
-        height: 500px;
-    }
-    
-    .divItems {
-        height: 500px;
-    }
-
-    .divImage {
-        display: none;
-        width: 0px;
-    }
-
-    .divLogin {
-        width: 100%;
-    }
-
-    .divInput {
-        width: 65%;
-        margin-top: 30px;
-        gap: 5px;
-    }
-    
-    .divInput input {
-        height: 35px;
-        border-radius: 5px;
-    }
-    
-    .divButton {
-        margin: 30px 0px;
-    }
-    
-    .form button {
-        height: 40px;
-        width: 120px;
-        border-radius: 5px;
-        font-size: var(--paragraph-regular-fx);
-    }
-    
-    .form button:hover {
-        width: 130px;
-    }
-}
-
-@media only screen and (max-width: 440px) {
-    .card {
-        width: 300px;
-        height: 400px;
-    }
-    
-    .divItems {
-        height: 420px;
-    }
-
-    .divImage {
-        display: none;
-        width: 0px;
-    }
-
-    .divLogin {
-        width: 100%;
-    }
-
-    .divInput {
-        width: 65%;
-        margin-top: 30px;
-        gap: 5px;
-    }
-    
-    .divInput input {
-        height: 35px;
-        border-radius: 5px;
-        padding-left: 10px;
-    }
-    
-    .divButton {
-        margin: 30px 0px;
-    }
-    
-    .form button {
-        height: 40px;
-        width: 120px;
-        border-radius: 5px;
-        font-size: var(--paragraph-regular-fx);
-    }
-    
-    .form button:hover {
-        width: 130px;
-    }
 }

@@ -11,12 +11,13 @@
     --base-light: 255, 255, 255;
     --base-warning: 255, 107, 84;
     --base-error: 191, 39, 15;
-    --base-success: 39, 174, 96
+    --base-success: 39, 174, 96;
 
     /* 
         Fonts
         Scale: 1.200 - Minor Third
     */
+    --paragraph-xsmall-fx: 12px;
     --paragraph-small-fx: 14px;
     --paragraph-regular-fx: 16px;
     --paragraph-large-fx: 20px;

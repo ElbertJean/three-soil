@@ -1,0 +1,27 @@
+.divInput {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 5px;
+}
+
+.label {
+    font-size: var(--paragraph-regular-fx);
+    color: rgba(var(--base-primary-strong));
+}
+
+.input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(var(--base-secondary-strong));
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    outline: 1px solid #003374;
+}
+
+.inputError::placeholder{
+    color: rgba(var(--base-error));
+}

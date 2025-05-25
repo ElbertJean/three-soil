@@ -11,7 +11,8 @@ import { SessionContext } from "../../routes/router.routes";
 import isEmailValid from "../../@utils/validation/isEmailValid";
 import isPasswordValid from "../../@utils/validation/isPasswordValid";
 
-import quest from '../../assets/quest.svg'
+import InputText from "../../components/Inputs/InputText/InputText";
+import InputPassword from "../../components/Inputs/InputPassword/InputPassword";
 
 function Login():JSX.Element {
 
@@ -56,17 +57,6 @@ function Login():JSX.Element {
         }
     }
 
-    const [isHovering, setIsHovering] = useState(false);
-
-    const handleMouseEnterHelp = () => {
-        setIsHovering(true);
-    };
-  
-    const handleMouseLeaveHelp = () => {
-        setIsHovering(false);
-    };
-  
-
     useEffect(() => {   
         if (!isEmailValid(emailValue) || !isPasswordValid(passwordValue)) {
             setButtonDisabled(false)
@@ -84,67 +74,45 @@ function Login():JSX.Element {
 
     return (
         <div className={styles.container}>
-            <div className={styles.card}>
-                <div className={styles.divItems}>
-                    <div className={styles.divImage}>
-                        <img src={tree} alt="árvore" className={styles.imageTree} />
-                    </div>
-                    <div className={styles.divLogin}>
-                        <div className={styles.divLogo}>
-                            <img src={logo} alt="logo" className={styles.logo}/>
-                        </div>
-                        <form className={styles.form}>
-                            <div className={styles.divInput}>
-                                <label className={styles.label} htmlFor="email">Email</label>
-                                <input 
-                                    className={`${styles.input} ${!errorEmail ? styles.input : styles.inputError}`} 
-                                    type="email"
-                                    onChange={(e) => setEmailValue(e.target.value)}
-                                    onBlur={validateEmail}
-                                    placeholder={errorEmail ? 'Por favor, insira um e-mail válido!' : ''}
-                                />
+            <div className={styles.divImage}>
+                <img src={tree} alt="árvore" className={styles.imageTree} />
+            </div>
+            <div className={styles.divLogin}>
+                <img src={logo} alt="logo" className={styles.logo}/>
+                <form className={styles.form}>
+                    <InputText 
+                        label="Email"
+                        htmlFor="email"
+                        placeholder={errorEmail ? 'Por favor, insira um e-mail válido!' : ''}
+                        className={`${!errorEmail ? '' : styles.inputError}`}
+                        onChange={(e) => setEmailValue(e.target.value)}
+                        onBlur={validateEmail}
+                    />
+                    <InputPassword 
+                        label="Senha"
+                        htmlFor="password"
+                        placeholder={errorPassword ? 'Por favor, insira uma senha válida!' : ''}
+                        className={`${!errorPassword ? '' : styles.inputError}`}
+                        onChange={(e) => setPasswordValue(e.target.value)}
+                        onBlur={validatePassword}
+                    />
+                    <div className={styles.divButton}>
+                        <button
+                            type="submit"
+                            onClick={handlerSubmit}
+                            className={`${styles.button} ${buttonDisabled ? styles.buttonActive : styles.buttonDesactive}`}                            disabled={!buttonDisabled}
+                        >
+                            Login
+                        </button>
+                        {!errorLogin ? (
+                            <></>
+                        ) : (
+                            <div className={styles.divError}>
+                                <span className={styles.error}>Email e/ou senha inválidos</span>
                             </div>
-                            <div className={styles.divInput}>
-                                <div className={styles.containerPassword}>
-                                    <label className={styles.label} htmlFor="password">Senha</label>
-                                    <img src={quest} alt="lup" className={styles.iconQuest} onMouseEnter={handleMouseEnterHelp} onMouseLeave={handleMouseLeaveHelp}/>
-                                    {isHovering && (
-                                        <div className={styles.divPopupHover}>
-                                            <div className={styles.popupHover}>
-                                                <p className={styles.modalParagraph}>8 caracteres no mínimo</p>
-                                                <p className={styles.modalParagraph}>1 letra maiúscula</p>
-                                                <p className={styles.modalParagraph}>1 letra minúscula</p>
-                                                <p className={styles.modalParagraph}>1 número</p>
-                                                <p className={styles.modalParagraph}>1 caractere especial</p>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                                <input 
-                                    className={`${styles.input} ${!errorPassword ? styles.input : styles.inputError}`} 
-                                    type="password" 
-                                    onChange={(e) => setPasswordValue(e.target.value)}
-                                    onBlur={validatePassword}
-                                    placeholder={errorPassword ? 'Por favor, insira uma senha válida!' : ''}
-                                />
-                            </div>
-                            {!errorLogin ? (
-                                <></>
-                            ): (
-                                <p className={styles.error}>Email e/ou senha inválidos</p>
-                            )}
-                            {buttonDisabled ? (
-                                <div className={styles.divButton}>
-                                    <button className={styles.buttonActive} type="submit" onClick={handlerSubmit}>Login</button>
-                                </div>
-                            ):(
-                                <div className={styles.divButton}>
-                                    <button className={styles.buttonDesactive} disabled type="submit" onClick={handlerSubmit}>Login</button>
-                                </div>
-                            )}
-                        </form>
+                        )}
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     )
