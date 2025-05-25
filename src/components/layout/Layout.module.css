@@ -1,6 +1,8 @@
 .container {
     display: flex;
     overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100vh;
 }
 
 .containerHeader {
